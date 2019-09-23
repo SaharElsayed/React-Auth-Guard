@@ -1,11 +1,14 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { injectIntl } from 'react-intl';
 
-const Private = () => {
+const Private = (props) => {
+    const { messages } = props.intl;
+
     return (
         <Container>
-            <h1> This is a Private route</h1>
+            <h1>{messages.privatePage}</h1>
         </Container>
     )
 }
-export default Private;
+export default injectIntl(Private);

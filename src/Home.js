@@ -1,11 +1,24 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { injectIntl } from 'react-intl';
 
-const Home = () => {
+const Home = (props) => {
+    const { messages } = props.intl;
+
     return (
         <Container>
-            <h1> This is a Home route</h1>
+            <h1>{messages.homePage}</h1>
         </Container>
     )
 }
-export default Home;
+
+const mapStateToProps = state => {
+    // console.log(state);
+
+    return { lang: state.locale.lang }
+}
+
+const HomeComponent = injectIntl(Home);
+
+export default connect(mapStateToProps)(HomeComponent);

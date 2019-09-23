@@ -1,11 +1,14 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { injectIntl } from 'react-intl';
 
-const Public = () => {
+const Public = (props) => {
+    const { messages } = props.intl;
+
     return (
         <Container>
-            <h1> This is a Public route</h1>
+            <h1>{messages.publicPage}</h1>
         </Container>
     )
 }
-export default Public;
+export default injectIntl(Public);
